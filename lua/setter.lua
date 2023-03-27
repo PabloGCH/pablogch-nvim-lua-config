@@ -1,7 +1,7 @@
 vim.o.mouse = a
 vim.o.termguicolors = true
 vim.o.number = true
-vim.o.cursorline = true
+vim.o.cursorline = false 
 vim.o.list = true
 vim.o.sidescroll = 1
 vim.o.wrap = true

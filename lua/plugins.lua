@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
     use 'akinsho/bufferline.nvim'
     --SMOOTH-SCROLL
     use 'karb94/neoscroll.nvim'
+    --TREESITTER
+    use 'nvim-treesitter/nvim-treesitter'
     --NVIM-CMP
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'

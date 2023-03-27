@@ -24,6 +24,7 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 
+require 'nvim-cmp-config'
 require 'nvim-tree-config'
 require 'lualine-config'
 require 'bufferline-config'

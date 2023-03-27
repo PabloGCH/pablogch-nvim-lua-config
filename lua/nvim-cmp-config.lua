@@ -41,8 +41,10 @@ cmp.setup.cmdline(':', {
     })
 })
 -- Setup lspconfig.
+local omnisharp_bin = "/usr/lib/omnisharp/OmniSharp"
 local project_library_path = vim.fn.getcwd() .. "/node_modules"
 local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
+local csharp_cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid())}
 local caps = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp = require('lspconfig')
 -- angular
@@ -66,5 +68,9 @@ lsp.cssls.setup{
 }
 -- html
 lsp.html.setup{
+    capabilities = caps
+}
+lsp.omnisharp.setup{
+    cmd = csharp_cmd,
     capabilities = caps
 }

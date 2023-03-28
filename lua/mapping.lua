@@ -13,7 +13,9 @@ vim.keymap.set('v', '<A-j>', ':m \'>+1<CR>gv=gv', {noremap = true})
 -- Move selected rows down
 vim.keymap.set('v', '<A-k>', ':m \'<-2<CR>gv=gv', {noremap = true})
 
-
+--TELESCOPE
+--====================================================================
+vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', {noremap = true})
 
 --NVIM-TREE
 --====================================================================

@@ -13,7 +13,7 @@ require("bufferline").setup{
         show_close_icon = false
     },
     highlights = {
-        offset_separator = {
+        --[[ offset_separator = {
             bg = "none"
         },
         fill = {
@@ -34,6 +34,6 @@ require("bufferline").setup{
         },
         indicator_visible = {
             bg = "none",
-        }
+        } --]]
     }
 }

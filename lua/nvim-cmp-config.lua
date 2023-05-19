@@ -70,7 +70,14 @@ lsp.cssls.setup{
 lsp.html.setup{
     capabilities = caps
 }
+local csharp_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) 
+
+function omni_on_attach(client)
+    client.server_capabilities.semanticTokensProvider = nil
+end
+
 lsp.omnisharp.setup{
     cmd = csharp_cmd,
-    capabilities = caps
+    capabilities = caps,
+    on_attach = omni_on_attach
 }

@@ -47,15 +47,18 @@ local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path ,
 local csharp_cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid())}
 local caps = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp = require('lspconfig')
--- angular
-lsp.angularls.setup {
-    cmd = cmd,
-    on_new_config = function(new_config,new_root_dir)
-        new_config.cmd = cmd
-    end,
-    on_attach = on_attach,
-    capabilities = caps
+
+
+--local project_library_path = "/usr/lib/node_modules/@angular/language-server/index.js"
+--local angular_cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
+
+lsp.angularls.setup{
+  -- cmd = angular_cmd,
+  -- on_new_config = function(new_config,new_root_dir)
+    --new_config.cmd = angular_cmd
+  --end,
 }
+
 -- typescript and javascript
 lsp.tsserver.setup{}
 -- Rust

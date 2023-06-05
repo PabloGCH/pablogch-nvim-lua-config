@@ -1,3 +1,4 @@
+require 'plugins'
 require 'setter'
 require 'nvim-cmp-config'
 require 'nvim-tree-config'

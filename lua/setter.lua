@@ -21,3 +21,5 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
+vim.o.lazyredraw = true
+vim.o.ttyfast = true

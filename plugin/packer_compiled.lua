@@ -159,6 +159,11 @@ _G.packer_plugins = {
     path = "/home/pablo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["omnisharp-extended-lsp.nvim"] = {
+    loaded = true,
+    path = "/home/pgch/.local/share/nvim/site/pack/packer/start/omnisharp-extended-lsp.nvim",
+    url = "https://github.com/Hoffs/omnisharp-extended-lsp.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/pablo/.local/share/nvim/site/pack/packer/start/packer.nvim",

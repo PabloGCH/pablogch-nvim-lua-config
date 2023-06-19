@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig'
+    use 'Hoffs/omnisharp-extended-lsp.nvim'
     
     --NVIM TREE
     use 'ryanoasis/vim-devicons'

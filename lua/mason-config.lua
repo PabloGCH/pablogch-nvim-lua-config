@@ -7,6 +7,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 end
+local csharp_on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
+end
 
 
 require("mason-lspconfig").setup_handlers {
@@ -17,6 +21,16 @@ require("mason-lspconfig").setup_handlers {
         require("lspconfig")[server_name].setup {
             capabilities = caps,
             on_attach = on_attach
+        }
+    end,
+
+    ["omnisharp"] = function ()
+        require("lspconfig").omnisharp.setup {
+            capabilities = caps,
+            on_attach = csharp_on_attach,
+            handlers = {
+                ["textDocument/definition"] = require('omnisharp_extended').handler
+            }
         }
     end
 

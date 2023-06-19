@@ -1,4 +1,5 @@
 require 'plugins'
+require 'mason-config'
 require 'setter'
 require 'nvim-cmp-config'
 require 'nvim-tree-config'

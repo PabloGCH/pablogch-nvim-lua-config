@@ -1,7 +1,4 @@
 local cmp = require'cmp'
-
-
-
 -- Global setup.
 cmp.setup({
     snippet = {
@@ -44,59 +41,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
-
-
--- Setup lspconfig.
-local omnisharp_bin = "/usr/lib/omnisharp/OmniSharp"
-local project_library_path = vim.fn.getcwd() .. "/node_modules"
-local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
-local csharp_cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid())}
-local caps = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lsp = require('lspconfig')
-
-
-local onLspAttach = function(client, bufnr)
-    local opts = { buffer = bufnr, noremap = true, silent = true }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-end
-
---local project_library_path = "/usr/lib/node_modules/@angular/language-server/index.js"
---local angular_cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
-
-lsp.angularls.setup{
-    -- cmd = angular_cmd,
-    -- on_new_config = function(new_config,new_root_dir)
-    --new_config.cmd = angular_cmd
-    --end,
-    on_attach = onLspAttach
-}
-
--- typescript and javascript
-lsp.tsserver.setup{}
--- Rust
-
-require("rust-tools").setup()
-
--- css
-lsp.cssls.setup{
-    capabilities = caps,
-    on_attach = onLspAttach
-}
--- html
-lsp.html.setup{
-    capabilities = caps,
-    on_attach = onLspAttach
-}
-local csharp_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) 
-
-function omni_on_attach(client, bufnr)
-    onLspAttach(client, bufnr)
-    client.server_capabilities.semanticTokensProvider = nil
-end
-
-lsp.omnisharp.setup{
-    cmd = csharp_cmd,
-    capabilities = caps,
-    on_attach = omni_on_attach
-}

@@ -3,8 +3,12 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     --THEME
     use 'Shatur/neovim-ayu'
-    --NVIM-LSPCONFIG
+
+    --Language server providers
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig'
+    
     --NVIM TREE
     use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'

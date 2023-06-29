@@ -9,6 +9,10 @@ return require('packer').startup(function(use)
     use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig'
     use 'Hoffs/omnisharp-extended-lsp.nvim'
+
+
+    --Debugging
+    use 'mfussenegger/nvim-dap'
     
     --NVIM TREE
     use 'ryanoasis/vim-devicons'
